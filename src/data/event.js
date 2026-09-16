@@ -9,8 +9,8 @@ export const event = {
   // Display strings
   date: '12 \u2013 14 November 2026',
   dateNote: '10:00 AM Prompt',
-  venueName: 'Eko Hotel & Suites',
-  venueArea: 'Victoria Island, Lagos',
+  venueName: 'Oriental Hotels & Suites',
+  venueArea: 'Lagos, Nigeria',
   registration: 'Reserve your seat for AMANOCON 2026.',
 
   // ISO timestamps (WAT, UTC+1) used by the countdown
