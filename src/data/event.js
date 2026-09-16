@@ -87,9 +87,9 @@ export const speakers = [
   },]
 
 export const schedule = [
-  { day: 'Day 1', date: 'Thu, 12 Nov', activity: 'Meet and Greet' },
-  { day: 'Day 2', date: 'Fri, 13 Nov', activity: 'Serminal and Paper Presentation' },
-  { day: 'Day 3', date: 'Sat, 14 Nov', activity: 'Dinner and Award Night' },
+  { day: 'Day 1', date: 'Thu, 12 Nov', activity: 'Meet and Greet, Venue: Eko Hotels & Suites' },
+  { day: 'Day 2', date: 'Fri, 13 Nov', activity: 'Serminal and Paper Presentation, Venue: Oriental Hotels' },
+  { day: 'Day 3', date: 'Sat, 14 Nov', activity: 'Dinner and Award Night, Venue: Oriental Hotels' },
 ]
 
 export const faqs = [
