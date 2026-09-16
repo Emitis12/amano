@@ -1,5 +1,5 @@
 export const event = {
-  name: 'Stakeholders Engagement & National Convention',
+  name: 'AMANO NATIONAL CONVENTION',
   shortName: 'AMANOCON 2026',
   year: '2026',
   theme: 'Executing Maritime Excellence Through Professional Capability and Real-World Results',
@@ -30,47 +30,72 @@ export const event = {
 
 export const speakers = [
   {
-    name: 'Capt. Sunday Otumara',
-    role: 'Maritime Industry Veteran',
-    tag: 'Keynote Speaker',
-    bio: 'Over three decades commanding vessels and shaping safety standards across West African shipping lanes.',
+    name: 'Mr. Emmanuel Maiguwa',
+    role: 'President, Alumni of Maritime Academy of Nigeria (AMANO)',
+    tag: 'Host',
+    image: '/speaker4.jpg',
+    //bio: 'Trains the next generation of maritime professionals and advises on academy curriculum reform.',
   },
   {
-    name: 'Dr. (Mrs.) Adebola Akinyemi',
-    role: 'CEO, Global Maritime Solutions',
-    tag: 'Panel Speaker',
-    bio: 'Leads one of the region\u2019s fastest-growing maritime logistics firms, with a focus on sustainable port operations.',
+    name: 'Dr. Kelvin Okonna',
+    role: 'Acting Rector, Maritime Academy of Nigeria, Oron',
+    tag: 'Chief Host',
+    image: '/speaker6.jpg',
+    //bio: 'Advises alumni-led ventures on funding pathways and long-term growth strategy.',
   },
   {
-    name: 'Engr. James Okoro',
-    role: 'MD, Oceanic Logistics Ltd',
-    tag: 'Panel Speaker',
-    bio: 'Engineers scalable supply-chain infrastructure connecting Nigerian ports to global trade routes.',
+    name: 'Mr. Adegboyega Oyetola (CON)',
+    role: 'Honourable Minister of Marine & Blue Economy',
+    tag: 'Chairman',
+    image: '/speaker5.jpg',
+   // bio: 'Advises alumni-led ventures on funding pathways and long-term growth strategy.',
   },
   {
-    name: 'Prof. Nkechi Eze',
-    role: 'Maritime Educator & Consultant',
-    tag: 'Panel Speaker',
-    bio: 'Trains the next generation of maritime professionals and advises on academy curriculum reform.',
+    name: 'Mr. William Azuh',
+    role: 'Maritime Policy, Administration & Governance',
+    tag: 'Speaker',
+    image: '/speaker1.jpg',
+    // bio: 'Over three decades commanding vessels and shaping safety standards across West African shipping lanes.',
   },
   {
-    name: 'Mr. Tolu Fagbenro',
-    role: 'Investment & Business Strategist',
-    tag: 'Panel Speaker',
-    bio: 'Advises alumni-led ventures on funding pathways and long-term growth strategy.',
+    name: 'Mr. Larry Amaraibi',
+    role: 'Deputy General Manager, Marine (Affiliate Lead for Marine Specialty & Total Energies Specialist)',
+    tag: 'Speaker',
+    image: '/speaker11.png',
+    //bio: 'Engineers scalable supply-chain infrastructure connecting Nigerian ports to global trade routes.',
   },
-]
+  {
+    name: 'Mr. Maximo Q. Mejia Jr.',
+    role: 'President, World Maritime University',
+    tag: 'Special Guest Of Honour',
+    image: '/speaker2.jpg',
+    // bio: 'Leads one of the region\u2019s fastest-growing maritime logistics firms, with a focus on sustainable port operations.',
+  },
+{
+    name: 'Dr. Dayo Mobereola',
+    role: 'DG/CEO, Nigerian Maritime Administration and Safety Agency (NIMASA)',
+    tag: 'Special Guest Of Honour',
+    image: '/speaker7.jpg',
+    //bio: 'Advises alumni-led ventures on funding pathways and long-term growth strategy.',
+  },
+{
+    name: 'Dr. Abubakar Dantsoho',
+    role: 'Managing Diretor, Nigerian Ports Authority',
+    tag: 'Special Guest of Honour',
+    image: '/speaker8.jpg',
+    //bio: 'Advises alumni-led ventures on funding pathways and long-term growth strategy.',
+  },]
 
 export const schedule = [
-  { day: 'Day 1', date: 'Thu, 12 Nov', activity: 'Opening Ceremony & Stakeholders Engagement' },
-  { day: 'Day 2', date: 'Fri, 13 Nov', activity: 'Convention Sessions & Workshops' },
-  { day: 'Day 3', date: 'Sat, 14 Nov', activity: 'Closing Ceremony & Awards' },
+  { day: 'Day 1', date: 'Thu, 12 Nov', activity: 'Meet and Greet' },
+  { day: 'Day 2', date: 'Fri, 13 Nov', activity: 'Serminal and Paper Presentation' },
+  { day: 'Day 3', date: 'Sat, 14 Nov', activity: 'Dinner and Award Night' },
 ]
 
 export const faqs = [
   {
     q: 'Who can attend the AMANO National Convention?',
-    a: 'The convention is open to all AMANO alumni, current maritime industry professionals, students of the Maritime Academy of Nigeria, Oron, and well-wishers of the association.',
+    a: 'The convention is open to all AMANO alumni, current maritime industry professionals, Ex cadets of the Maritime Academy of Nigeria, Oron, and well-wishers of the association.',
   },
   {
     q: 'Is there a registration fee?',

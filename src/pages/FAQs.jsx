@@ -30,7 +30,7 @@ export default function FAQs() {
 
   return (
     <div>
-      <section className="bg-navy-900 text-white section-pad">
+      <section className="bg-navy-900 text-white pt-32 pb-16 md:pt-36 md:pb-20 px-6 md:px-10">
         <div className="max-w-7xl mx-auto">
           <p className="text-gold-400 font-semibold text-sm mb-3">
             <span className="eyebrow-rule" />FAQs

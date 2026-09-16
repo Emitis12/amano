@@ -51,7 +51,7 @@ export default function Footer() {
       </div>
 
       <div className="border-t border-navy-800 py-5 text-center text-xs text-navy-300">
-        © 2025 AMANO. All rights reserved.
+        © 2026 AMANO. All rights reserved.
       </div>
     </footer>
   )

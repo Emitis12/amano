@@ -1,4 +1,4 @@
-import { Users, ArrowRight } from 'lucide-react'
+import { ArrowRight } from 'lucide-react'
 import { speakers, event } from '../data/event.js'
 import { useRegistrationModal } from '../context/RegistrationModalContext.jsx'
 
@@ -7,7 +7,7 @@ export default function Speakers() {
 
   return (
     <div>
-      <section className="bg-navy-900 text-white section-pad">
+      <section className="bg-navy-900 text-white pt-32 pb-16 md:pt-36 md:pb-20 px-6 md:px-10">
         <div className="max-w-7xl mx-auto">
           <p className="text-gold-400 font-semibold text-sm mb-3">
             <span className="eyebrow-rule" />Featured Speakers
@@ -25,8 +25,8 @@ export default function Speakers() {
               key={s.name}
               className="rounded-2xl border border-navy-100 bg-navy-50 p-7 flex flex-col"
             >
-              <div className="aspect-square w-24 rounded-xl bg-navy-100 mb-5 flex items-center justify-center">
-                <Users size={36} className="text-navy-300" />
+              <div className="aspect-square w-24 rounded-xl bg-navy-100 mb-5 overflow-hidden">
+                <img src={s.image} alt={s.name} className="w-full h-full object-cover" />
               </div>
               <span className="inline-block w-fit text-[11px] font-medium bg-navy-800 text-white px-3 py-1 rounded-full mb-3">
                 {s.tag}

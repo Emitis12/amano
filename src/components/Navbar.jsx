@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { NavLink } from 'react-router-dom'
 import { Anchor, Menu, X, ArrowRight } from 'lucide-react'
 import { useRegistrationModal } from '../context/RegistrationModalContext.jsx'
@@ -14,10 +14,24 @@ const links = [
 
 export default function Navbar() {
   const [open, setOpen] = useState(false)
+  const [scrolled, setScrolled] = useState(false)
   const { open: openRegistration } = useRegistrationModal()
 
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 24)
+    onScroll()
+    window.addEventListener('scroll', onScroll, { passive: true })
+    return () => window.removeEventListener('scroll', onScroll)
+  }, [])
+
   return (
-    <header className="sticky top-0 z-50 bg-navy-800 text-white">
+    <header
+      className={`fixed top-0 inset-x-0 z-50 text-white transition-all duration-300 ${
+        scrolled || open
+          ? 'bg-navy-900/80 backdrop-blur-md shadow-lg shadow-navy-950/30 border-b border-white/10'
+          : 'bg-transparent'
+      }`}
+    >
       <div className="max-w-7xl mx-auto px-6 md:px-10 h-20 flex items-center justify-between">
         <NavLink to="/" className="flex items-center gap-3 shrink-0" onClick={() => setOpen(false)}>
           <img src="/amano-logo.png" alt="AMANO logo" className="w-11 h-11 object-contain" />
@@ -66,7 +80,7 @@ export default function Navbar() {
       </div>
 
       {open && (
-        <nav className="lg:hidden border-t border-navy-700 bg-navy-800 px-6 py-4 flex flex-col gap-4">
+        <nav className="lg:hidden border-t border-white/10 px-6 py-4 flex flex-col gap-4">
           {links.map((link) => (
             <NavLink
               key={link.to}

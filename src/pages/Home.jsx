@@ -77,24 +77,14 @@ export default function Home() {
       <section className="relative bg-navy-900 text-white overflow-hidden">
         <div className="absolute inset-0">
           <img
-            src="https://images.unsplash.com/photo-1601918774946-25832a4be0d6?q=80&w=2000&auto=format&fit=crop"
+            src="/hero-bg.jpg"
             alt=""
             className="w-full h-full object-cover opacity-40"
           />
           <div className="absolute inset-0 bg-gradient-to-r from-navy-900 via-navy-900/85 to-navy-900/30" />
         </div>
 
-        <div className="relative max-w-7xl mx-auto px-6 md:px-10 pt-14 pb-20 md:pt-20 md:pb-28">
-          <div className="flex items-center gap-3 mb-8">
-            <img src="/amano-logo.png" alt="AMANO logo" className="w-14 h-14 object-contain" />
-            <span className="leading-tight">
-              <span className="block font-display text-xl font-semibold">AMANO</span>
-              <span className="block text-xs tracking-wider text-navy-200">
-                Alumni of Maritime Academy of Nigeria, Oron
-              </span>
-            </span>
-          </div>
-
+        <div className="relative max-w-7xl mx-auto px-6 md:px-10 pt-28 pb-20 md:pt-32 md:pb-28">
           <p className="text-gold-400 font-semibold tracking-wide mb-4 text-sm">
             CONNECT &nbsp;|&nbsp; NETWORK &nbsp;|&nbsp; BUILD &nbsp;|&nbsp; ADVANCE
           </p>
@@ -213,26 +203,26 @@ export default function Home() {
           <div className="flex items-end justify-between flex-wrap gap-4 mb-2">
             <div>
               <p className="text-gold-600 font-semibold text-sm mb-3">
-                <span className="eyebrow-rule" />Featured Speakers
+                <span className="eyebrow-rule" />Featured Speakers & Top Personnels
               </p>
               <h2 className="text-3xl md:text-4xl font-bold text-navy-900">
-                Meet Our Speakers
+                Meet Our Speakers & Dignitories
               </h2>
             </div>
             <Link
               to="/speakers"
               className="inline-flex items-center gap-1.5 text-navy-800 font-semibold hover:text-gold-600 transition-colors"
             >
-              View All Speakers <ArrowRight size={16} />
+              View All Dignitories <ArrowRight size={16} />
             </Link>
           </div>
           <p className="text-navy-600 mb-10">Engaging minds. Transforming the maritime industry.</p>
 
-          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-6">
+          <div className="grid grid-cols-3 sm:grid-cols-3 lg:grid-cols-4 gap-6">
             {speakers.map((s) => (
               <div key={s.name} className="text-center">
-                <div className="aspect-square rounded-xl bg-navy-100 mb-4 flex items-center justify-center overflow-hidden">
-                  <Users size={40} className="text-navy-300" />
+                <div className="aspect-square rounded-xl bg-navy-100 mb-4 overflow-hidden">
+                  <img src={s.image} alt={s.name} className="w-full h-full object-cover" />
                 </div>
                 <h3 className="font-semibold text-navy-900 text-sm leading-snug">{s.name}</h3>
                 <p className="text-xs text-navy-500 mb-2">{s.role}</p>
