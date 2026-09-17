@@ -218,7 +218,7 @@ export default function Home() {
           </div>
           <p className="text-navy-600 mb-10">Engaging minds. Transforming the maritime industry.</p>
 
-          <div className="grid grid-cols-3 sm:grid-cols-3 lg:grid-cols-4 gap-6">
+          <div className="grid grid-cols-3 sm:grid-cols-3 lg:grid-cols-5 gap-6">
             {speakers.map((s) => (
               <div key={s.name} className="text-center">
                 <div className="aspect-square rounded-xl bg-navy-100 mb-4 overflow-hidden">

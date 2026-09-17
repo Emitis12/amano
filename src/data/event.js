@@ -22,13 +22,20 @@ export const event = {
 
   // Contact & socials
   website: 'www.alumniofman.com',
-  email: 'info@alumniofman.com',
+  email: 'convention2026@alumniofman.com',
   phone: '+2349030000469',
   handle: '@AMANOHQ',
   hashtags: ['#AMANOCON2026', '#FromPolicyToPractice', '#EKODOINGS'],
 }
 
 export const speakers = [
+  {
+    name: 'Captain Warredi Enisuoh',
+    role: 'Head of Operations, Tantita Security Services Nig. Ltd',
+    tag: 'Moderator',
+    image: '/speaker50.png',
+    //bio: 'Trains the next generation of maritime professionals and advises on academy curriculum reform.',
+  },
   {
     name: 'Mr. Emmanuel Maiguwa',
     role: 'President, Alumni of Maritime Academy of Nigeria (AMANO)',
@@ -61,7 +68,7 @@ export const speakers = [
     name: 'Mr. Larry Amaraibi',
     role: 'Deputy General Manager, Marine (Affiliate Lead for Marine Specialty & Total Energies Specialist)',
     tag: 'Speaker',
-    image: '/speaker11.png',
+    image: '/speaker52.jpg',
     //bio: 'Engineers scalable supply-chain infrastructure connecting Nigerian ports to global trade routes.',
   },
   {
