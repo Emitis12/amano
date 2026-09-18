@@ -40,7 +40,7 @@ export const speakers = [
     name: 'Mr. Emmanuel Maiguwa',
     role: 'President, Alumni of Maritime Academy of Nigeria (AMANO)',
     tag: 'Host',
-    image: '/speaker4.jpg',
+    image: '/speaker53.jpg',
     //bio: 'Trains the next generation of maritime professionals and advises on academy curriculum reform.',
   },
   {
