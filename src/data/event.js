@@ -31,8 +31,7 @@ export const event = {
 export const speakers = [
   {
     name: 'Captain Warredi Enisuoh',
-    role: 'Executive Director, Operations and Technical 
-Tantita Security Services',
+    role: 'Executive Director, Operations and Technical Tantita Security Services',
     tag: 'Moderator',
     image: '/speaker50.png',
     //bio: 'Trains the next generation of maritime professionals and advises on academy curriculum reform.',
