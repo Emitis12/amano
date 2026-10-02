@@ -32,7 +32,7 @@ const WelcomeNote = () => {
         {/* <div className="relative">
 
             {/* Decorative Gold Corner */}
-            <div className="absolute -bottom-4 -left-4 z-0 h-24 w-24 border-b-[4px] border-l-[4px] border-[#FFD21F]" /> */}
+            <div className="absolute -bottom-4 -left-4 z-0 h-24 w-24 border-b-[4px] border-l-[4px] border-[#FFD21F]" />
 
             {/* Image Container */}
            {/* <div className="relative z-10 overflow-hidden rounded-xl bg-[#002B5C] shadow-xl">
