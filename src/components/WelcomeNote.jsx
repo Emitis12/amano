@@ -17,7 +17,7 @@ const WelcomeNote = () => {
           </p>
 
           <h2 className="max-w-[650px] text-3xl font-extrabold leading-tight text-[#002B5C] sm:text-4xl lg:text-[42px]">
-            A Message from the National President
+            A Message from the Chairman, Planning Committee
           </h2>
         </div>
 
@@ -29,7 +29,7 @@ const WelcomeNote = () => {
           {/* =======================================================
               CHAIRMAN IMAGE
           ======================================================= */}
-          <div className="relative">
+         // <div className="relative">
 
             {/* Decorative Gold Corner */}
             <div className="absolute -bottom-4 -left-4 z-0 h-24 w-24 border-b-[4px] border-l-[4px] border-[#FFD21F]" />
@@ -46,11 +46,11 @@ const WelcomeNote = () => {
             {/* Chairman Details */}
             <div className="relative z-10 mt-5">
               <h3 className="text-xl font-bold text-[#002B5C]">
-                Mr. Emmanuel Maiguwa
+                Mr. Agassi Jonathan Peter
               </h3>
 
               <p className="mt-1 text-sm font-medium text-slate-500">
-                National President, AMANO
+                Chairman, AMANO Convention Planning Committee 
               </p>
             </div>
           </div>
@@ -82,31 +82,25 @@ const WelcomeNote = () => {
               </p>
 
               <p>
-                It gives me great pleasure to welcome you all to the
-                AMANO National Convention. This gathering provides us
-                with another valuable opportunity to come together,
-                reconnect, and strengthen the bonds that unite us as
-                alumni of the Maritime Academy of Nigeria, Oron.
+                It gives me great pleasure to welcome you to the AMANO Stakeholders Engagement and Convention 2026, themed:
+
+“From Policy to Practice: Executing Maritime Excellence through Professional Capability and Real-World Results.”
               </p>
 
               <p>
-                Our convention is more than a gathering. It is an
-                opportunity to exchange ideas, build meaningful
-                relationships, celebrate our shared heritage, and
-                explore new ways of contributing to the growth and
-                development of our association.
+                This convention is more than a gathering; it is an opportunity for us, as professionals and stakeholders in the maritime sector, to connect, share knowledge, strengthen partnerships, and translate sound policies into measurable impact.
               </p>
 
               <p>
-                I encourage every member to participate actively,
-                connect with fellow alumni, engage in the conversations,
-                and make the most of the opportunities that this
-                convention presents.
+                As alumni of the Maritime Academy of Nigeria, Oron, we have a shared responsibility to uphold professional excellence, promote continuous development, and contribute meaningfully to the growth of Nigeria’s maritime industry.
+
+I strongly encourage every AMANO member, stakeholder, and invited participant to register now and secure your place at this important convention. Your presence, experience, ideas, and professional network will help make AMANO 2026 a meaningful platform for collaboration and real-world results.
               </p>
 
               <p>
-                I look forward to welcoming you all to Lagos as we
-                reconnect, network, build, and advance together.
+                Don’t just hear about it, be part of it. Register today, and let us shape the future of maritime excellence together.
+
+I look forward to welcoming you to AMANO Convention 2026.
               </p>
 
             </div>
@@ -117,7 +111,7 @@ const WelcomeNote = () => {
             <div className="mt-9 border-t border-slate-200 pt-6">
 
               <p className="text-lg font-bold text-[#002B5C]">
-                Vhairman
+                Mr. Agassi Jonathan Peter 
               </p>
 
               <p className="mt-1 text-sm text-slate-500">
@@ -125,7 +119,7 @@ const WelcomeNote = () => {
               </p>
 
               <p className="text-sm font-semibold text-[#002B5C]">
-                AMANO
+                AMANO Convention Planning Committee 
               </p>
 
             </div>
