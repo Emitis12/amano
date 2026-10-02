@@ -37,7 +37,7 @@ const WelcomeNote = () => {
             {/* Image Container */}
             <div className="relative z-10 overflow-hidden rounded-xl bg-[#002B5C] shadow-xl">
               <img
-                src="/assets/chairman.jpg"
+                src="/speaker56.jpg"
                 alt="National Chairman of AMANO"
                 className="h-[440px] w-full object-cover object-top"
               />
