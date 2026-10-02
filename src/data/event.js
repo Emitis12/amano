@@ -62,15 +62,17 @@ export const speakers = [
     role: 'Maritime Policy, Administration & Governance',
     tag: 'Speaker',
     image: '/speaker1.jpg',
-    // bio: 'Over three decades commanding vessels and shaping safety standards across West African shipping lanes.',
+    bio: 'William Azuh is an international expert in Maritime Policy, Administration and 
+Governance, with more than 33 years’ experience in the maritime industry. He is currently the Director/Chief Executive Officer of UCK Integrated Consulting Ltd. He served as Director at NIMASA and as Nigeria’s Alternate Permanent Representative to the International Maritime Organization (IMO) for more than 10 
+years. At IMO, William was the Deputy Director, Subdivision for Maritime Development, 
+Technical Cooperation Division. Before then, he was the Head of Africa and The Middle East Section in the same Subdivision for Maritime Development. Mr Azuh served as a Board Member, Board of Governors of the World Maritime University (WMU), Malmo, Sweden. He is currently a Trustee and Board Member, Stella Maris (formerly Apostleship of the Sea), United Kingdom, a Seafarers Charity. He is a Rotarian and the immediate past President of the Rotary Club of Westminster West, London, United Kingdom. Mr William Azuh is an accomplished international maritime professional.',
   },
   {
     name: 'Mr. Larry Amaraibi',
     role: 'Deputy General Manager, Marine (Affiliate Lead for Marine Specialty & Total Energies Specialist)',
     tag: 'Speaker',
     image: '/speaker52.jpg',
-    bio: 'Seasoned Marine Professional with many years of progressive experience in the energy industry including several engineer roles on board LNG carriers, shore based marine quality assurance organisation within Total E & P Nigeria and in Total E & P headquarters in Paris.
-Offering a combination of expertise backed by these extensive experience, strategic thinking, well-honed skill sets and behaviours, an unwavering commitment to continuous development and a clear understanding of the evolving energy industry and its close interplay with the marine discipline.',
+    bio: 'Seasoned Marine Professional with many years of progressive experience in the energy industry including several engineer roles on board LNG carriers, shore based marine quality assurance organisation within Total E & P Nigeria and in Total E & P headquarters in Paris. Offering a combination of expertise backed by these extensive experience, strategic thinking, well-honed skill sets and behaviours, an unwavering commitment to continuous development and a clear understanding of the evolving energy industry and its close interplay with the marine discipline.',
   },
   {
     name: 'Mr. Maximo Q. Mejia Jr.',
