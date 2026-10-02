@@ -32,19 +32,19 @@ const WelcomeNote = () => {
         {/* <div className="relative">
 
             {/* Decorative Gold Corner */}
-            <div className="absolute -bottom-4 -left-4 z-0 h-24 w-24 border-b-[4px] border-l-[4px] border-[#FFD21F]" />
+            <div className="absolute -bottom-4 -left-4 z-0 h-24 w-24 border-b-[4px] border-l-[4px] border-[#FFD21F]" /> */}
 
             {/* Image Container */}
-            <div className="relative z-10 overflow-hidden rounded-xl bg-[#002B5C] shadow-xl">
+           {/* <div className="relative z-10 overflow-hidden rounded-xl bg-[#002B5C] shadow-xl">
               <img
                 src="/speaker53.png"
                 alt="National Chairman of AMANO"
                 className="h-[440px] w-full object-cover object-top"
               />
-            </div>
+            </div> */}
 
             {/* Chairman Details */}
-            <div className="relative z-10 mt-5">
+            {/* <div className="relative z-10 mt-5">
               <h3 className="text-xl font-bold text-[#002B5C]">
                 Mr. Agassi Jonathan Peter
               </h3>
