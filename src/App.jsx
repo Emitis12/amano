@@ -10,6 +10,7 @@ import Convention from './pages/Convention.jsx'
 import Speakers from './pages/Speakers.jsx'
 import Venue from './pages/Venue.jsx'
 import FAQs from './pages/FAQs.jsx'
+import WelcomeNote from "./components/WelcomeNote";
 
 function ScrollToTop() {
   const { pathname } = useLocation()
