@@ -15,6 +15,7 @@ import {
 } from 'lucide-react'
 import { event, speakers, schedule } from '../data/event.js'
 import Countdown from '../components/Countdown.jsx'
+import WelcomeNote from "../components/WelcomeNote";
 import { useRegistrationModal } from '../context/RegistrationModalContext.jsx'
 
 const pillars = [
@@ -140,6 +141,8 @@ export default function Home() {
       </section>
 
       <Countdown />
+
+<WelcomeNote />
 
       {/* ABOUT */}
       <section className="section-pad bg-navy-50">
