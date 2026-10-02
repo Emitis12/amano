@@ -29,7 +29,7 @@ const WelcomeNote = () => {
           {/* =======================================================
               CHAIRMAN IMAGE
           ======================================================= */}
-        // <div className="relative">
+        {/* <div className="relative">
 
             {/* Decorative Gold Corner */}
             <div className="absolute -bottom-4 -left-4 z-0 h-24 w-24 border-b-[4px] border-l-[4px] border-[#FFD21F]" />
@@ -53,7 +53,7 @@ const WelcomeNote = () => {
                 Chairman, AMANO Convention Planning Committee 
               </p>
             </div>
-          </div> //
+          </div> */}
 
           {/* =======================================================
               WELCOME MESSAGE
