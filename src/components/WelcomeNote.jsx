@@ -17,7 +17,7 @@ const WelcomeNote = () => {
           </p>
 
           <h2 className="max-w-[650px] text-3xl font-extrabold leading-tight text-[#002B5C] sm:text-4xl lg:text-[42px]">
-            A Message from the National Chairman
+            A Message from the National President
           </h2>
         </div>
 
@@ -46,11 +46,11 @@ const WelcomeNote = () => {
             {/* Chairman Details */}
             <div className="relative z-10 mt-5">
               <h3 className="text-xl font-bold text-[#002B5C]">
-                Vhairman
+                Mr. Emmanuel Maiguwa
               </h3>
 
               <p className="mt-1 text-sm font-medium text-slate-500">
-                National Chairman, AMANO
+                National President, AMANO
               </p>
             </div>
           </div>
@@ -71,7 +71,7 @@ const WelcomeNote = () => {
 
             {/* Heading */}
             <h3 className="mb-7 max-w-[700px] text-2xl font-extrabold leading-tight text-[#002B5C] sm:text-3xl">
-              Welcome to Our AMANO National Convention
+              Welcome to Our AMANO National Convention 2026
             </h3>
 
             {/* Message */}
