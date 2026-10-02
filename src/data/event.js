@@ -69,7 +69,8 @@ export const speakers = [
     role: 'Deputy General Manager, Marine (Affiliate Lead for Marine Specialty & Total Energies Specialist)',
     tag: 'Speaker',
     image: '/speaker52.jpg',
-    //bio: 'Engineers scalable supply-chain infrastructure connecting Nigerian ports to global trade routes.',
+    bio: 'Seasoned Marine Professional with many years of progressive experience in the energy industry including several engineer roles on board LNG carriers, shore based marine quality assurance organisation within Total E & P Nigeria and in Total E & P headquarters in Paris.
+Offering a combination of expertise backed by these extensive experience, strategic thinking, well-honed skill sets and behaviours, an unwavering commitment to continuous development and a clear understanding of the evolving energy industry and its close interplay with the marine discipline.',
   },
   {
     name: 'Mr. Maximo Q. Mejia Jr.',
