@@ -80,6 +80,7 @@ He has been at the forefront of advancing the Nigerian maritime industry, workin
 {
   name: 'Mrs. Iroghama Ogbeifun',
   role: 'Managing Director/Chief Executive Officer of Starzs Investments Company Limited',
+tag: `Speaker`,
   image: '/speaker80.jpg',
   bio: `Iroghama Ogbeifun is the Managing Director/Chief Executive Officer of Starzs Investments Company Limited where she manages the affairs and operations of a Fleet of Eleven Ships working in Deep offshore Nigerian waters whilst supporting the oil exploration and production activities of International Oil Companies.
 
