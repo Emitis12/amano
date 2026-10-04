@@ -41,7 +41,13 @@ export const speakers = [
     role: 'President, Alumni of Maritime Academy of Nigeria (AMANO)',
     tag: 'Host',
     image: '/speaker53.png',
-    //bio: 'Trains the next generation of maritime professionals and advises on academy curriculum reform.',
+    bio: 'Emmanuel Maiguwa is a seasoned founder, Chief Executive Officer and entrepreneur with over 23 years of experience as an all-round maritime expert. His expertise spans ship management, commercial shipping, sale and purchase, maritime security, port operations, international shipping and agency operations, and international maritime regulatory frameworks and standards.
+
+He is adept at formulating strategies and corporate policies that drive wealth creation, capacity building and project delivery, and at carrying initiatives from planning through implementation to completion.
+
+He is the Chief Executive Officer of Bricks Mursten Mattoni Limited and a Director of Elgan Integrated Limited and BA Ports Services Limited. He serves as President of the Maritime Security Providers Association of Nigeria (MASPAN) and, in his second tenure, as President of the Alumni of the Maritime Academy of Nigeria, Oron (AMANO).
+
+He has been at the forefront of advancing the Nigerian maritime industry, working closely with the leadership of the Federal Ministry of Marine and Blue Economy, the Nigerian Navy, the Nigerian Ports Authority, the Nigerian Chamber of Shipping, the Shipowners Association of Nigeria, and other private-sector maritime organisations. He has also supported the maritime leadership of other African countries in their maritime development efforts.',
   },
   {
     name: 'Dr. Kelvin Okonna',
@@ -71,6 +77,32 @@ export const speakers = [
   image: '/speaker52.jpg',
   bio: `Seasoned Marine Professional with many years of progressive experience in the energy industry including several engineer roles on board LNG carriers, shore based marine quality assurance organisation within Total E & P Nigeria and in Total E & P headquarters in Paris. Offering a combination of expertise backed by these extensive experience, strategic thinking, well-honed skill sets and behaviours, an unwavering commitment to continuous development and a clear understanding of the evolving energy industry and its close interplay with the marine discipline.`,
 },
+{
+    name: 'Mrs. Iroghama Ogbeifun',
+    role: 'Managing Director/Chief Executive Oficer of Starzs Investments Company Limited',
+    image: '/speaker80.jpg',
+   bio: 'Iroghama Ogbeifun is the Managing Director/Chief Executive Oficer of Starzs Investments Company Limited where she
+manages the affairs and operations of a Fleet of Eleven Ships working in Deep offshore Nigerian waters whilst supporting the
+oil exploration and production activities of International Oil Companies.
+She holds a Bachelor’s degree in Biology and Psychology and an MSc in Public Health. She is also an alumnus of the Harvard 
+Business School.
+In addition to her role at Starzs Investments Company Limited, Iroghama Ogbeifun serves as Vice Chairman of Starzs Gas Limited 
+and Director at Eaglewatch Security Services Limited. 
+A respected industry leader, she is a Member of the Governing Board of Nigerian Maritime Administration and Safety Agency 
+(NIMASA), a Member of the Institute of Directors (IoD), and a Fellow of the National Institute of Credit Administration (NICA). 
+A strong advocate for gender inclusion and women’s advancement in business and energy, she is a Founding Member and 
+Sponsorship Director of Women in Energy Network (WIEN), an Associate Member of Women in Management, Business and Public 
+Service (WIMBIZ), a Patron of Association of Professional Women Engineers of Nigeria (APWEN), a Matron of the Association 
+of Women Entrepreneurs and Business Owners (AWEBO), and a member of GAIA Africa. 
+Beyond the corporate space, Iroghama is deeply committed to philanthropy and social impact. She serves as a Board Trustee of The 
+R.E.A.C.H Nigeria Foundation, a Board Member of Lagos Liga, and a Member of the Advisory Board for the Women in Maritime 
+and Energy Awards (WiME Awards). With over a decade of extensive entrepreneurial experience, she is the founder of Hairven Hair Limited which has beauty salons, 
+spa & a hair care line and Stratom Concept Limited, a diversified company with interests in logistics, construction, petroleum 
+marketing, agro-allied services, and retail whose subsidiaries include Jana & Jaya’s Daily Mart and Revitalife Pharmacy. 
+She is a mother to beautiful twin girls and is committed to the growth of female entrepreneurs, a passion she drives through
+mentorship and support.
+.',
+  },
   {
     name: 'Mr. Maximo Q. Mejia Jr.',
     role: 'President, World Maritime University',
