@@ -103,7 +103,21 @@ He has been at the forefront of advancing the Nigerian maritime industry, workin
     role: 'Executive Director, Operations and Technical Tantita Security Services',
     tag: 'Moderator',
     image: '/speaker49.jpg',
-    // bio: 'Trains the next generation of maritime professionals and advises on academy curriculum reform.',
+    bio: `Captain Warredi Enisuoh is a highly accomplished maritime and aviation expert with over two decades of experience spanning multiple continents and industries. His distinguished career is defined by leadership roles in maritime operations, aviation, and national security, with a strong focus on protecting vital infrastructure within Nigeria’s oil and gas sector.
+
+Captain Enisuoh holds the prestigious Master Mariner Class 1 Unlimited Foreign Going License, making him a highly qualified maritime professional with the ability to command vessels of any size on international waters. He also holds an Aircraft Pilot’s License and a Diploma in Aviation, further demonstrating his versatility and deep understanding of complex transportation systems.
+
+His educational background is equally impressive. He is a graduate of the Maritime Academy of Nigeria, Oron, and the Arab Maritime Transport Academy in Alexandria, Egypt. He further advanced his expertise at the Australian Maritime College in Launceston, Tasmania, and the Tasmanian Aviation College. His international training was complemented by studies at the Swiss Air Training Centre in Zurich, Switzerland, where he gained valuable knowledge and experience in aviation.
+
+Throughout his career, Captain Enisuoh has held critical positions across both the maritime and aviation industries. He spent eight years with Pacific International Lines Pte Ltd in Singapore, gaining extensive hands-on experience in maritime operations. His commitment to education and professional development also led him to serve as a Lecturer, Instructor, Course Developer, and Examiner at the Australian Maritime College and the University of Tasmania, where he contributed to the training and development of future maritime professionals.
+
+Captain Enisuoh further demonstrated his leadership at the Australian Maritime Safety Authority (AMSA), where he spent six years contributing to maritime safety and regulatory compliance across Australia's vast coastline. His aviation career also saw him serve as an airline pilot with Virgin Nigeria and other airlines, further showcasing his expertise across multiple transportation sectors.
+
+In Nigeria, Captain Enisuoh made significant contributions to the Nigerian Maritime Administration and Safety Agency (NIMASA), serving as Director of Maritime Safety and Director of Shipping Development. In these roles, he played an important part in shaping policies and driving initiatives aimed at strengthening maritime safety and improving shipping operations in Nigeria.
+
+Currently, Captain Enisuoh serves as Executive Director – Operations and Technical at Tantita Security Services Nigeria Limited, where he oversees critical operations and technical strategies focused on securing Nigeria's oil and gas infrastructure. His extensive knowledge and leadership in maritime and aviation operations make him a key figure in supporting Tantita Security's mission to protect the nation's vital resources.
+
+Captain Warredi Enisuoh's commitment to excellence, dedication to advancing maritime and aviation safety, and passion for developing innovative security strategies have established him as a respected authority in maritime, aviation, and security operations.`
   },
 
   {
