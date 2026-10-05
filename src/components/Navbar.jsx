@@ -19,8 +19,11 @@ export default function Navbar() {
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24)
+
     onScroll()
+
     window.addEventListener('scroll', onScroll, { passive: true })
+
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
 
@@ -33,26 +36,43 @@ export default function Navbar() {
       }`}
     >
       <div className="max-w-7xl mx-auto px-6 md:px-10 h-20 flex items-center justify-between">
-        <NavLink to="/" className="flex items-center gap-3 shrink-0" onClick={() => setOpen(false)}>
-          <img src="/amano-logo.png" alt="AMANO logo" className="w-11 h-11 object-contain" />
+
+        {/* Logo */}
+        <NavLink
+          to="/"
+          className="flex items-center gap-3 shrink-0"
+          onClick={() => setOpen(false)}
+        >
+          <img
+            src="/amano-logo.png"
+            alt="AMANO logo"
+            className="w-11 h-11 object-contain"
+          />
+
           <span className="leading-tight">
-            <span className="block font-display text-lg font-semibold tracking-wide">AMANO</span>
+            <span className="block font-display text-lg font-semibold tracking-wide">
+              AMANO
+            </span>
+
             <span className="block text-[10px] tracking-wider text-navy-200">
-              Alumni of Maritime Academy<br />of Nigeria, Oron
+              Alumni of Maritime Academy
+              <br />
+              of Nigeria, Oron
             </span>
           </span>
         </NavLink>
 
+        {/* Desktop Navigation */}
         <nav className="hidden lg:flex items-center gap-8">
           {links.map((link) => (
             <NavLink
               key={link.to}
               to={link.to}
               className={({ isActive }) =>
-                `text-sm font-medium transition-colors pb-1 border-b-2 ${
+                `relative text-sm font-medium transition-all duration-300 pb-1 border-b-2 ${
                   isActive
                     ? 'text-gold-400 border-gold-400'
-                    : 'text-navy-100 border-transparent hover:text-white'
+                    : 'text-navy-100 border-transparent hover:text-gold-400 hover:border-gold-400 hover:-translate-y-0.5'
                 }`
               }
             >
@@ -61,15 +81,19 @@ export default function Navbar() {
           ))}
         </nav>
 
+        {/* Desktop Register Button */}
         <button
           type="button"
           onClick={openRegistration}
-          className="hidden lg:inline-flex items-center gap-2 bg-gold-500 text-navy-900 font-semibold text-sm px-5 py-2.5 rounded-full hover:bg-gold-400 transition-colors"
+          className="hidden lg:inline-flex items-center gap-2 bg-gold-500 text-navy-900 font-semibold text-sm px-5 py-2.5 rounded-full hover:bg-gold-400 hover:-translate-y-0.5 hover:shadow-lg hover:shadow-gold-500/20 transition-all duration-300"
         >
-          Register Now <ArrowRight size={16} />
+          Register Now
+          <ArrowRight size={16} />
         </button>
 
+        {/* Mobile Menu Button */}
         <button
+          type="button"
           className="lg:hidden text-white"
           onClick={() => setOpen((v) => !v)}
           aria-label={open ? 'Close menu' : 'Open menu'}
@@ -79,6 +103,7 @@ export default function Navbar() {
         </button>
       </div>
 
+      {/* Mobile Navigation */}
       {open && (
         <nav className="lg:hidden border-t border-white/10 px-6 py-4 flex flex-col gap-4">
           {links.map((link) => (
@@ -87,21 +112,28 @@ export default function Navbar() {
               to={link.to}
               onClick={() => setOpen(false)}
               className={({ isActive }) =>
-                `text-base font-medium ${isActive ? 'text-gold-400' : 'text-navy-100'}`
+                `text-base font-medium transition-all duration-300 ${
+                  isActive
+                    ? 'text-gold-400'
+                    : 'text-navy-100 hover:text-gold-400 hover:translate-x-1'
+                }`
               }
             >
               {link.label}
             </NavLink>
           ))}
+
+          {/* Mobile Register Button */}
           <button
             type="button"
             onClick={() => {
               setOpen(false)
               openRegistration()
             }}
-            className="inline-flex items-center justify-center gap-2 bg-gold-500 text-navy-900 font-semibold text-sm px-5 py-3 rounded-full mt-2"
+            className="inline-flex items-center justify-center gap-2 bg-gold-500 text-navy-900 font-semibold text-sm px-5 py-3 rounded-full mt-2 hover:bg-gold-400 hover:-translate-y-0.5 hover:shadow-lg hover:shadow-gold-500/20 transition-all duration-300"
           >
-            Register Now <ArrowRight size={16} />
+            Register Now
+            <ArrowRight size={16} />
           </button>
         </nav>
       )}
