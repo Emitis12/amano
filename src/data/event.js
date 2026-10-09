@@ -170,11 +170,11 @@ She is a mother to beautiful twin girls and is committed to the growth of female
   },
 
   {
-    name: 'Mr. Maximo Q. Mejia Jr.',
-    role: 'President, World Maritime University',
-    tag: 'Special Guest Of Honour',
-    image: '/speaker2.jpg',
-    bio: 'Professor Maximo Q. Mejia is an accomplished international civil servant, global leader, and scholar in maritime governance, policy, and administration, with over four decades of professional and academic experience. He is a passionate advocate for safe, secure, sustainable, and efficient shipping on clean oceans.
+  name: 'Mr. Maximo Q. Mejia Jr.',
+  role: 'President, World Maritime University',
+  tag: 'Special Guest of Honour',
+  image: '/speaker2.jpg',
+  bio: `Professor Maximo Q. Mejia is an accomplished international civil servant, global leader, and scholar in maritime governance, policy, and administration, with over four decades of professional and academic experience. He is a passionate advocate for safe, secure, sustainable, and efficient shipping on clean oceans.
 
 Appointed by the Secretary-General of the International Maritime Organization (IMO) as the eighth President of the World Maritime University (WMU), Professor Mejia oversees the University’s academic programmes, operations, and administration. Before becoming President, he served on the WMU Faculty from 1998, holding several leadership positions, including Director of the PhD Programme, Head of the Maritime Law and Policy Specialization, Associate Academic Dean, and Nippon Foundation Professor of Maritime Governance, Policy, and Administration.
 
@@ -182,8 +182,8 @@ He has authored or co-authored more than 70 published articles and book chapters
 
 Beyond academia, Professor Mejia served as Administrator/Director-General of the Maritime Industry Authority (MARINA) in the Philippines from 2013 to 2016. He previously held several positions in the Philippine Navy and Philippine Coast Guard, contributing to navigational safety and maritime development. In 2013, he was named among Lloyd’s List’s 100 Most Influential People in the Shipping Industry. He has also undertaken senior diplomatic assignments representing the Philippines at IMO meetings and chaired the 31st ASEAN Maritime Transport Working Group in 2016.
 
-Professor Mejia holds a PhD from Lund University, Sweden; an MSc from the World Maritime University; an MA in Law and Diplomacy from The Fletcher School at Tufts University; and a BSc from the United States Naval Academy. Fluent in Filipino, English, and Swedish, with knowledge of Spanish and Chinese, he is WMU’s first President from Asia and the first President to be an alumnus of the University.',
-  },
+Professor Mejia holds a PhD from Lund University, Sweden; an MSc from the World Maritime University; an MA in Law and Diplomacy from The Fletcher School at Tufts University; and a BSc from the United States Naval Academy. Fluent in Filipino, English, and Swedish, with knowledge of Spanish and Chinese, he is WMU’s first President from Asia and the first President to be an alumnus of the University.`
+},
 ]
 
 
