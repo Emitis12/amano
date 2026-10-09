@@ -10,6 +10,7 @@ const links = [
   { to: '/speakers', label: 'Speakers' },
   { to: '/venue', label: 'Venue' },
   { to: '/faqs', label: 'FAQs' },
+  { to: '/gallerie', label: 'Gallery' },
 ]
 
 export default function Navbar() {
