@@ -73,14 +73,14 @@ export const speakers = [
     role: 'Honourable Minister of Marine & Blue Economy',
     tag: 'Chairman',
     image: '/speaker5.jpg',
-    // bio: 'Advises alumni-led ventures on funding pathways and long-term growth strategy.',
+    bio: 'Honourable Minister, Federal Ministry of Marine and Blue Economy. Mr. Oyetola has served as Nigeria’s pioneer Minister of Marine and Blue Economy since August 2023, after two terms as Executive Governor of Osun State (2018–2023). A graduate of Insurance from the University of Lagos (B.Sc., 1978) with an MBA also from UNILAG (1990), he built a long career in the financial and insurance sectors before entering public service. Under his leadership, the Ministry secured Federal Executive Council approval for Nigeria’s National Policy on Marine and Blue Economy, and he has driven reforms in maritime safety, port efficiency, and the sector’s revenue profile.',
   },
 {
     name: 'Dr. Dayo Mobereola',
     role: 'DG/CEO, Nigerian Maritime Administration and Safety Agency (NIMASA)',
     tag: 'keynote Speaker',
     image: '/speaker7.jpg',
-    // bio: 'Advises alumni-led ventures on funding pathways and long-term growth strategy.',
+    bio: 'Appointed DG/CEO of NIMASA in March 2024, Dr. Mobereola holds a Ph.D. and an M.Sc. in Transport Economics from the University of Wales, UK. He previously spent over a decade as Managing Director of the Lagos Metropolitan Area Transport Authority (LAMATA, 2003–2015), later serving as Lagos State Commissioner for Transportation and Board Chairman of Lagos Bus Services Ltd. His private-sector background includes senior roles at British Petroleum Shipping Limited and AFM Consulting Plc in London.',
   },
 
   {
@@ -88,14 +88,14 @@ export const speakers = [
     role: 'Managing Diretor, Nigerian Ports Authority',
     tag: 'Keynote Speaker',
     image: '/speaker8.jpg',
-    // bio: 'Advises alumni-led ventures on funding pathways and long-term growth strategy.',
+    bio: 'Appointed the 29th Managing Director of NPA by President Bola Tinubu in July 2024, Dr. Dantsoho rose through nearly three decades at the Authority, starting as an NYSC member in 1992 and advancing through roles including Port Manager at Onne Port, Technical Assistant to the Managing Director, and Chief of Staff to the Minister of Transportation. A Ph.D. holder with a first degree in Public Administration from the University of Maiduguri, he also chairs the Port Management Association of West and Central Africa (PMAWCA) and has overseen a sharp rise in NPA’s revenue performance during his tenure.',
   },
 {
     name: 'Dr. Kelvin Okonna',
     role: 'Acting Rector, Maritime Academy of Nigeria, Oron',
     tag: 'Chief Host',
     image: '/speaker6.jpg',
-    // bio: 'Advises alumni-led ventures on funding pathways and long-term growth strategy.',
+    bio: 'Dr. Okonna was appointed Acting Rector of MAN, Oron in January 2025, capping nearly three decades of service at the Academy. An alumnus of the World Maritime University (WMU), Malmö, Sweden, he previously held several pioneering roles at MAN, including first Head of the Maritime Safety Department and inaugural Director of Strategy, Research and Development. He is a member of the Nautical Institute (UK) and a Fellow of the Chartered Institute of Logistics and Transport (CILT), and has represented the Academy on several Federal Government committees, including Nigeria’s IMSAS audit in 2016.',
   },
   {
     name: 'Mr. Emmanuel Maiguwa',
