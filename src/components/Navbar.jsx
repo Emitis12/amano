@@ -1,6 +1,7 @@
+
 import { useState, useEffect } from 'react'
 import { NavLink } from 'react-router-dom'
-import { Anchor, Menu, X, ArrowRight } from 'lucide-react'
+import { Menu, X, ArrowRight, Hotel } from 'lucide-react'
 import { useRegistrationModal } from '../context/RegistrationModalContext.jsx'
 
 const links = [
@@ -82,15 +83,31 @@ export default function Navbar() {
           ))}
         </nav>
 
-        {/* Desktop Register Button */}
-        <button
-          type="button"
-          onClick={openRegistration}
-          className="hidden lg:inline-flex items-center gap-2 bg-gold-500 text-navy-900 font-semibold text-sm px-5 py-2.5 rounded-full hover:bg-gold-400 hover:-translate-y-0.5 hover:shadow-lg hover:shadow-gold-500/20 transition-all duration-300"
-        >
-          Register Now
-          <ArrowRight size={16} />
-        </button>
+        {/* Desktop Action Buttons */}
+        <div className="hidden lg:flex items-center gap-3 shrink-0">
+          <NavLink
+            to="/hotels"
+            className={({ isActive }) =>
+              `inline-flex items-center gap-2 font-semibold text-sm px-4 py-2.5 rounded-full border transition-all duration-300 hover:-translate-y-0.5 ${
+                isActive
+                  ? 'bg-white text-navy-900 border-white'
+                  : 'border-gold-400 text-gold-400 hover:bg-gold-400 hover:text-navy-900'
+              }`
+            }
+          >
+            <Hotel size={16} />
+            Hotel Booking
+          </NavLink>
+
+          <button
+            type="button"
+            onClick={openRegistration}
+            className="inline-flex items-center gap-2 bg-gold-500 text-navy-900 font-semibold text-sm px-5 py-2.5 rounded-full hover:bg-gold-400 hover:-translate-y-0.5 hover:shadow-lg hover:shadow-gold-500/20 transition-all duration-300"
+          >
+            Register Now
+            <ArrowRight size={16} />
+          </button>
+        </div>
 
         {/* Mobile Menu Button */}
         <button
@@ -124,6 +141,22 @@ export default function Navbar() {
             </NavLink>
           ))}
 
+          {/* Mobile Hotel Booking Button */}
+          <NavLink
+            to="/hotels"
+            onClick={() => setOpen(false)}
+            className={({ isActive }) =>
+              `inline-flex items-center justify-center gap-2 font-semibold text-sm px-5 py-3 rounded-full mt-2 border transition-all duration-300 ${
+                isActive
+                  ? 'bg-white text-navy-900 border-white'
+                  : 'border-gold-400 text-gold-400 hover:bg-gold-400 hover:text-navy-900'
+              }`
+            }
+          >
+            <Hotel size={17} />
+            Hotel Booking
+          </NavLink>
+
           {/* Mobile Register Button */}
           <button
             type="button"
@@ -131,7 +164,7 @@ export default function Navbar() {
               setOpen(false)
               openRegistration()
             }}
-            className="inline-flex items-center justify-center gap-2 bg-gold-500 text-navy-900 font-semibold text-sm px-5 py-3 rounded-full mt-2 hover:bg-gold-400 hover:-translate-y-0.5 hover:shadow-lg hover:shadow-gold-500/20 transition-all duration-300"
+            className="inline-flex items-center justify-center gap-2 bg-gold-500 text-navy-900 font-semibold text-sm px-5 py-3 rounded-full hover:bg-gold-400 hover:-translate-y-0.5 hover:shadow-lg hover:shadow-gold-500/20 transition-all duration-300"
           >
             Register Now
             <ArrowRight size={16} />
