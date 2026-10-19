@@ -14,6 +14,10 @@ import Speakers from './pages/Speakers.jsx'
 import Venue from './pages/Venue.jsx'
 import FAQs from './pages/FAQs.jsx'
 import Gallerie from './pages/Gallerie.jsx'
+import PhotographerLogin from './pages/PhotographerLogin.jsx'
+import PhotographerDashboard from './pages/PhotographerDashboard.jsx'
+import HotelBooking from './pages/HotelBooking.jsx'
+import Attending from './pages/Attending.jsx'
 
 import WelcomeNote from './components/WelcomeNote'
 
@@ -28,11 +32,17 @@ function ScrollToTop() {
 }
 
 export default function App() {
+  const location = useLocation()
+
+  const isPhotographerLogin =
+    location.pathname === '/photographer/login'
+
   return (
     <RegistrationModalProvider>
       <div className="min-h-screen flex flex-col">
         <ScrollToTop />
-        <Navbar />
+
+        {!isPhotographerLogin && <Navbar />}
 
         <main className="flex-1">
           <Routes>
@@ -42,11 +52,29 @@ export default function App() {
             <Route path="/speakers" element={<Speakers />} />
             <Route path="/venue" element={<Venue />} />
             <Route path="/faqs" element={<FAQs />} />
+
+            {/* Existing gallery — unchanged */}
             <Route path="/gallerie" element={<Gallerie />} />
+
+            {/* Public hotel booking portal — unchanged */}
+            <Route path="/hotels" element={<HotelBooking />} />
+
+            {/* New attendee flyer generator */}
+            <Route path="/attending" element={<Attending />} />
+
+            <Route
+              path="/photographer/login"
+              element={<PhotographerLogin />}
+            />
+
+            <Route
+              path="/photographer/dashboard"
+              element={<PhotographerDashboard />}
+            />
           </Routes>
         </main>
 
-        <Footer />
+        {!isPhotographerLogin && <Footer />}
       </div>
 
       <RegistrationModal />
