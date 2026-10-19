@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useRef, useState } from 'react'
+import { Component, useCallback, useEffect, useRef, useState } from 'react'
 import {
   Download,
   ImagePlus,
@@ -741,7 +741,7 @@ function loadImage(file) {
 /*  Component                                                          */
 /* ------------------------------------------------------------------ */
 
-export default function Attending() {
+function AttendingPage() {
   const canvasRef = useRef(null)
   const photoInputRef = useRef(null)
 
@@ -882,8 +882,8 @@ export default function Attending() {
     try {
       const blob = await canvasToBlob('The flyer could not be prepared for sharing.')
 
-      const file = new File([blob], 'AMANO-Convention-2026.jpg', {
-        type: 'image/jpg',
+      const file = new File([blob], 'AMANO-Convention-2026.png', {
+        type: 'image/png',
       })
 
       const message = `I'll be attending the ${CONVENTION_TEXT}!\n12–14 November 2026 | ${EVENT_VENUE.join(' ')}\n${WEBSITE}\n${HASHTAGS.join(' ')}`
@@ -1201,5 +1201,44 @@ export default function Attending() {
         </div>
       </div>
     </div>
+  )
+}
+
+/* Shows the real error on screen instead of a blank page. */
+class AttendingBoundary extends Component {
+  constructor(props) {
+    super(props)
+    this.state = { error: null }
+  }
+
+  static getDerivedStateFromError(error) {
+    return { error }
+  }
+
+  componentDidCatch(error, info) {
+    console.error('Attending page crashed:', error, info)
+  }
+
+  render() {
+    if (this.state.error) {
+      return (
+        <div className="min-h-screen bg-[#061326] p-6 text-white">
+          <h1 className="text-xl font-bold text-[#F2C11D]">This page hit an error</h1>
+          <pre className="mt-4 whitespace-pre-wrap break-words rounded-xl bg-black/40 p-4 text-sm text-red-200">
+            {String(this.state.error?.stack || this.state.error)}
+          </pre>
+        </div>
+      )
+    }
+
+    return this.props.children
+  }
+}
+
+export default function Attending() {
+  return (
+    <AttendingBoundary>
+      <AttendingPage />
+    </AttendingBoundary>
   )
 }
