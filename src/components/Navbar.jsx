@@ -12,6 +12,7 @@ const links = [
   { to: '/venue', label: 'Venue' },
   { to: '/faqs', label: 'FAQs' },
   { to: '/gallerie', label: 'Gallery' },
+  { to: '/attending', label: 'I Will Be Attending' },
 ]
 
 export default function Navbar() {
@@ -38,7 +39,6 @@ export default function Navbar() {
       }`}
     >
       <div className="max-w-7xl mx-auto px-6 md:px-10 h-20 flex items-center justify-between">
-
         {/* Logo */}
         <NavLink
           to="/"
@@ -65,7 +65,7 @@ export default function Navbar() {
         </NavLink>
 
         {/* Desktop Navigation */}
-        <nav className="hidden lg:flex items-center gap-8">
+        <nav className="hidden lg:flex items-center gap-5">
           {links.map((link) => (
             <NavLink
               key={link.to}

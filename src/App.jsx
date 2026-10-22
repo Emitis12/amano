@@ -17,6 +17,7 @@ import Gallerie from './pages/Gallerie.jsx'
 import PhotographerLogin from './pages/PhotographerLogin.jsx'
 import PhotographerDashboard from './pages/PhotographerDashboard.jsx'
 import HotelBooking from './pages/HotelBooking.jsx'
+import Attending from './pages/Attending.jsx'
 
 import WelcomeNote from './components/WelcomeNote'
 
@@ -55,13 +56,17 @@ export default function App() {
             {/* Existing gallery — unchanged */}
             <Route path="/gallerie" element={<Gallerie />} />
 
-            {/* Public hotel booking portal */}
+            {/* Public hotel booking portal — unchanged */}
             <Route path="/hotels" element={<HotelBooking />} />
+
+            {/* New attendee flyer generator */}
+            <Route path="/attending" element={<Attending />} />
 
             <Route
               path="/photographer/login"
               element={<PhotographerLogin />}
             />
+
             <Route
               path="/photographer/dashboard"
               element={<PhotographerDashboard />}
