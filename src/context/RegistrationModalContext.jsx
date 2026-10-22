@@ -1,14 +1,33 @@
-import { createContext, useContext, useState, useCallback, useMemo } from 'react'
+
+import {
+  createContext,
+  useContext,
+  useState,
+  useCallback,
+  useMemo,
+} from 'react'
 
 const RegistrationModalContext = createContext(null)
 
 export function RegistrationModalProvider({ children }) {
   const [isOpen, setIsOpen] = useState(false)
 
-  const open = useCallback(() => setIsOpen(true), [])
-  const close = useCallback(() => setIsOpen(false), [])
+  const open = useCallback(() => {
+    setIsOpen(true)
+  }, [])
 
-  const value = useMemo(() => ({ isOpen, open, close }), [isOpen, open, close])
+  const close = useCallback(() => {
+    setIsOpen(false)
+  }, [])
+
+  const value = useMemo(
+    () => ({
+      isOpen,
+      open,
+      close,
+    }),
+    [isOpen, open, close]
+  )
 
   return (
     <RegistrationModalContext.Provider value={value}>
@@ -19,8 +38,12 @@ export function RegistrationModalProvider({ children }) {
 
 export function useRegistrationModal() {
   const ctx = useContext(RegistrationModalContext)
+
   if (!ctx) {
-    throw new Error('useRegistrationModal must be used within a RegistrationModalProvider')
+    throw new Error(
+      'useRegistrationModal must be used within a RegistrationModalProvider'
+    )
   }
+
   return ctx
 }

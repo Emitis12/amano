@@ -1,0 +1,4 @@
+project_id = "tijrnhuloenhmvygjlah"
+
+[functions.admin-hotel-booking-action]
+verify_jwt = true
