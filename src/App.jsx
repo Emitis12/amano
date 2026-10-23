@@ -1,5 +1,5 @@
 
-import { Routes, Route, useLocation } from 'react-router-dom'
+import { Routes, Route, useLocation } from 'react-ro//uter-dom'
 import { useEffect } from 'react'
 
 import Navbar from './components/Navbar.jsx'
@@ -31,7 +31,7 @@ function ScrollToTop() {
   return null
 }
 
-export default function A///()pp() {
+export default function App() {
   const location = useLocation()
 
   const isPhotographerLogin =
