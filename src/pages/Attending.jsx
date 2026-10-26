@@ -270,23 +270,54 @@ function drawLogo(ctx, logo) {
     return
   }
 
-  // Logo sits on the left; the bold AMANO wordmark is written next to it.
-  const box = { x: 70, y: 56, w: 140, h: 140 }
-  const scale = Math.min(box.w / naturalWidth, box.h / naturalHeight)
+  // Wordmark: AMAN
+  const textX = 70
+  const textY = 150
+  const textWidth = 230
+  const fontSize = 118
+  const logoSize = 108
+
+  drawFitted(ctx, 'AMAN', textX, textY, fontSize, NAVY, 900, textWidth)
+
+  // Logo replaces the final O and matches the text height.
+  const box = {
+    x: textX + textWidth + 8,
+    y: textY - logoSize + 25,
+    w: logoSize,
+    h: logoSize,
+  }
+
+  const scale = Math.min(
+    box.w / naturalWidth,
+    box.h / naturalHeight,
+  )
+
   const w = naturalWidth * scale
   const h = naturalHeight * scale
 
-  ctx.drawImage(logo, box.x + (box.w - w) / 2, box.y + (box.h - h) / 2, w, h)
+  ctx.drawImage(
+    logo,
+    box.x + (box.w - w) / 2,
+    box.y + (box.h - h) / 2,
+    w,
+    h,
+  )
 
-  const textX = 226
-  const textWidth = 296
+  // Gold underline.
+  ctx.fillStyle = goldGradient(ctx, textX, 162, 280, 4)
+  ctx.fillRect(textX, 162, 280, 4)
 
-  drawFitted(ctx, 'AMANO', textX, 150, 118, NAVY, 900, textWidth)
-
-  ctx.fillStyle = goldGradient(ctx, textX, 162, textWidth, 4)
-  ctx.fillRect(textX, 162, textWidth, 4)
-
-  drawFitted(ctx, 'ALUMNI OF MARITIME ACADEMY OF NIGERIA ORON', textX, 190, 18, RED, 800, textWidth)
+  // Organisation name.
+  drawFitted(
+    ctx,
+    'ALUMNI OF MARITIME ACADEMY OF NIGERIA ORON',
+    textX,
+    190,
+    18,
+    RED,
+    800,
+    280,
+  )
 }
 
 function drawHeader(ctx, logo) {
