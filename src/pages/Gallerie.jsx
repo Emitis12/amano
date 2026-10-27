@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from 'react'
-import { Camera, Eye, Images, RefreshCw, X } from 'lucide-react'
+import { Camera, Download, Eye, Images, RefreshCw, X } from 'lucide-react'
 import { supabase } from '../lib/supabase.js'
 
 const DAY_TABS = [
@@ -40,6 +40,7 @@ export default function Gallerie() {
   const [selectedPhoto, setSelectedPhoto] = useState(null)
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState('')
+  const [downloading, setDownloading] = useState(false)
 
   async function loadPhotos() {
     setLoading(true)
@@ -143,6 +144,36 @@ export default function Gallerie() {
         'Could not update photo view count:',
         err.message
       )
+    }
+  }
+
+  async function downloadPhoto(photo) {
+    if (!photo?.imageUrl || downloading) return
+
+    setDownloading(true)
+
+    try {
+      const response = await fetch(photo.imageUrl)
+
+      if (!response.ok) throw new Error('Download failed')
+
+      const blob = await response.blob()
+      const url = URL.createObjectURL(blob)
+      const link = document.createElement('a')
+
+      link.href = url
+      link.download = photo.file_name || `amano-photo-${photo.id}.jpg`
+
+      document.body.appendChild(link)
+      link.click()
+      link.remove()
+      URL.revokeObjectURL(url)
+    } catch (err) {
+      console.error('Could not download photo:', err.message)
+      // Fallback: open the image so it can be saved manually.
+      window.open(photo.imageUrl, '_blank', 'noopener,noreferrer')
+    } finally {
+      setDownloading(false)
     }
   }
 
@@ -374,6 +405,18 @@ export default function Gallerie() {
                 · {CATEGORY_LABELS[selectedPhoto.category] || 'General'} ·{' '}
                 {selectedPhoto.view_count ?? 0} views
               </p>
+
+              {selectedPhoto.imageUrl && (
+                <button
+                  type="button"
+                  onClick={() => downloadPhoto(selectedPhoto)}
+                  disabled={downloading}
+                  className="mt-4 inline-flex items-center gap-2 rounded-full bg-amber-400 px-5 py-2.5 text-sm font-semibold text-[#002B5C] transition hover:bg-amber-300 disabled:cursor-not-allowed disabled:opacity-60"
+                >
+                  <Download size={16} />
+                  {downloading ? 'Downloading...' : 'Download photo'}
+                </button>
+              )}
             </div>
           </div>
         </div>
