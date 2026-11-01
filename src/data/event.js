@@ -184,6 +184,31 @@ Beyond academia, Professor Mejia served as Administrator/Director-General of the
 
 Professor Mejia holds a PhD from Lund University, Sweden; an MSc from the World Maritime University; an MA in Law and Diplomacy from The Fletcher School at Tufts University; and a BSc from the United States Naval Academy. Fluent in Filipino, English, and Swedish, with knowledge of Spanish and Chinese, he is WMU’s first President from Asia and the first President to be an alumnus of the University.`
 },
+
+{
+  name: 'Mrs. Vivian Chimezie-Azubuike',
+  role: 'Executive Director, Operations and Technical Tantita Security Services',
+  tag: 'Panelist',
+  image: '/speaker82.jpg',
+  bio: `I am a maritime industry leader, policy advocate, and capacity-building strategist with a proven record of driving institutional growth, strengthening regulatory collaboration, and advancing sustainability within Africa’s maritime ecosystem.
+
+As the Director General of the Nigerian Chamber of Shipping, I lead high-level engagement with government agencies, international organisations, and industry stakeholders to shape policies, enhance professional standards, and champion the competitiveness of Nigeria’s shipping and blue economy sectors.
+
+My work focuses on strengthening maritime capacity, promoting environmental sustainability, and creating opportunities for women and young professionals in the industry. I have led initiatives that bridge gaps between industry and government through multi-stakeholder collaborations, training programmes, and policy dialogues aimed at improving maritime safety, regulatory compliance, and operational excellence.
+
+I am deeply committed to environmental sustainability and actively serve on key platforms that advance ESG principles, marine environmental protection, and responsible shipping. My passion for developing people has shaped national and international training frameworks, including programmes that empower women in maritime, expand career awareness, and equip the next generation of African maritime professionals.
+
+With experience spanning advocacy, strategy, stakeholder management, and policy development, I bring a solutions-driven mindset and a global outlook. I remain focused on strengthening Africa’s position in the global supply chain, advancing sustainable maritime practices, and creating inclusive opportunities across the blue economy.`
+},
+
+{
+  name: 'Capt. Sunday Michael Umoren',
+  role: 'Secretary General Abuja MoU',
+  tag: 'Panelist',
+  image: '/speaker83.jpg',
+  bio: `A highly versatile, dynamic, and purpose-driven Master Mariner with extensive and diverse multicultural experience spanning the Far East (Japan, China, Singapore, Myanmar, Sri Lanka, and Malaysia); Europe (more than two-thirds of EU states); the Middle East (Turkey); and North and South America (Brazil, Mexico, and the USA). Experienced in shipboard operations, shipping management, project management, and business management. Seeking to join a world-class organization where knowledge, skills, and experience can be fully utilized to achieve organizational goals through excellent customer satisfaction, effective management, and the maintenance of strong returns on stakeholders' investments.`
+},
+
 ]
 
 
