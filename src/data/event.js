@@ -187,7 +187,7 @@ Professor Mejia holds a PhD from Lund University, Sweden; an MSc from the World 
 
 {
   name: 'Mrs. Vivian Chimezie-Azubuike',
-  role: 'Executive Director, Operations and Technical Tantita Security Services',
+  role: 'Director General | Nigerian Chamber of Shipping | Maritime Advocate | Human Resources Professional | Corporate Marketing Strategist and International Business Intermediary | Maritime Consultant',
   tag: 'Panelist',
   image: '/speaker82.jpg',
   bio: `I am a maritime industry leader, policy advocate, and capacity-building strategist with a proven record of driving institutional growth, strengthening regulatory collaboration, and advancing sustainability within Africa’s maritime ecosystem.
