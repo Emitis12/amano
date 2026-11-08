@@ -1,4 +1,3 @@
-
 import { useCallback, useEffect, useMemo, useState } from 'react'
 import {
   CalendarDays,
@@ -16,6 +15,7 @@ import {
   FileCheck2,
   Landmark,
   Copy,
+  Search,
 } from 'lucide-react'
 import { supabase } from '../lib/supabase'
 
@@ -157,6 +157,12 @@ export default function HotelBooking() {
   const [receiptSuccess, setReceiptSuccess] = useState('')
   const [bookingResult, setBookingResult] = useState(null)
   const [receiptFile, setReceiptFile] = useState(null)
+
+  // Returning guest booking lookup
+  const [lookupReference, setLookupReference] = useState('')
+  const [lookupEmail, setLookupEmail] = useState('')
+  const [lookingUpBooking, setLookingUpBooking] = useState(false)
+  const [lookupError, setLookupError] = useState('')
 
   const [form, setForm] = useState({
     hotel_id: '',
@@ -328,6 +334,96 @@ export default function HotelBooking() {
     setReceiptSuccess('')
   }
 
+  // Retrieve an existing booking using its reference and guest email.
+  const handleLookupBooking = async (event) => {
+    event.preventDefault()
+
+    setLookupError('')
+    setBookingError('')
+    setReceiptError('')
+    setReceiptSuccess('')
+    setReceiptFile(null)
+    setBookingResult(null)
+
+    const bookingReference = lookupReference.trim()
+    const guestEmail = lookupEmail.trim().toLowerCase()
+
+    if (!bookingReference || !guestEmail) {
+      setLookupError(
+        'Enter your booking reference and the email address used when making the booking.'
+      )
+      return
+    }
+
+    setLookingUpBooking(true)
+
+    try {
+      const { data, error } = await supabase.functions.invoke(
+        'create-hotel-booking',
+        {
+          body: {
+            action: 'lookup_booking',
+            booking_reference: bookingReference,
+            guest_email: guestEmail,
+          },
+        }
+      )
+
+      if (error) {
+        throw new Error(
+          await getFunctionErrorMessage(
+            error,
+            'We could not retrieve your booking. Please check your details.'
+          )
+        )
+      }
+
+      if (!data || data.success === false || !data.booking) {
+        throw new Error(
+          data?.error ||
+            data?.message ||
+            'No booking was found with those details.'
+        )
+      }
+
+      // Restore the booking so the existing receipt-upload section works.
+      setBookingResult({
+        ...data,
+        is_existing_lookup: true,
+      })
+
+      // Restore the guest email and other available details.
+      setForm((current) => ({
+        ...current,
+        guest_email: data.booking.guest_email || guestEmail,
+        guest_name: data.booking.guest_name || current.guest_name,
+        guest_phone: data.booking.guest_phone || current.guest_phone,
+      }))
+
+      // Use the bank details returned by the lookup function.
+      if (data.bank_transfer) {
+        setBankSettings(data.bank_transfer)
+      }
+
+      setReceiptSuccess('')
+      setReceiptError('')
+
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth',
+      })
+    } catch (error) {
+      console.error('Booking lookup error:', error)
+
+      setLookupError(
+        error.message ||
+          'Unable to retrieve your booking. Please check your details and try again.'
+      )
+    } finally {
+      setLookingUpBooking(false)
+    }
+  }
+
   const handleSubmit = async (event) => {
     event.preventDefault()
     setBookingError('')
@@ -465,7 +561,9 @@ export default function HotelBooking() {
     }
 
     if (file.size <= 0 || file.size > MAX_RECEIPT_SIZE) {
-      setReceiptError('The receipt must be larger than 0 bytes and not exceed 10 MB.')
+      setReceiptError(
+        'The receipt must be larger than 0 bytes and not exceed 10 MB.'
+      )
       event.target.value = ''
       return
     }
@@ -485,6 +583,19 @@ export default function HotelBooking() {
 
     if (!bookingResult) {
       setReceiptError('Submit your booking before uploading a receipt.')
+      return
+    }
+
+    const paymentStatus = String(
+      bookingResult?.booking?.payment_status ||
+        bookingResult?.payment_status ||
+        ''
+    ).toLowerCase()
+
+    if (paymentStatus === 'verified') {
+      setReceiptError(
+        'Payment for this booking has already been verified.'
+      )
       return
     }
 
@@ -523,7 +634,9 @@ export default function HotelBooking() {
     }
 
     if (receiptFile.size <= 0 || receiptFile.size > MAX_RECEIPT_SIZE) {
-      setReceiptError('The receipt must be larger than 0 bytes and not exceed 10 MB.')
+      setReceiptError(
+        'The receipt must be larger than 0 bytes and not exceed 10 MB.'
+      )
       return
     }
 
@@ -730,6 +843,105 @@ export default function HotelBooking() {
       </section>
 
       <main className="mx-auto max-w-6xl px-4 py-10 sm:px-6 lg:py-14">
+        {/* Returning guest booking lookup */}
+        <section className="mb-8 rounded-2xl border border-slate-200 bg-white p-5 shadow-sm sm:p-7">
+          <div className="flex items-start gap-3">
+            <Search
+              size={24}
+              className="mt-1 shrink-0 text-[#008BE0]"
+            />
+
+            <div className="min-w-0 flex-1">
+              <h2 className="text-xl font-bold text-[#002B5C]">
+                Already made a booking?
+              </h2>
+
+              <p className="mt-2 text-sm leading-6 text-slate-600">
+                Retrieve your existing booking using your booking reference
+                and the email address you used when making the reservation.
+                You can then upload your payment receipt.
+              </p>
+
+              <form
+                onSubmit={handleLookupBooking}
+                className="mt-5 grid gap-4 sm:grid-cols-2"
+              >
+                <div>
+                  <label
+                    htmlFor="lookup_reference"
+                    className="mb-2 block text-sm font-semibold text-slate-700"
+                  >
+                    Booking reference
+                  </label>
+
+                  <input
+                    id="lookup_reference"
+                    type="text"
+                    value={lookupReference}
+                    onChange={(event) =>
+                      setLookupReference(event.target.value)
+                    }
+                    placeholder="Enter your booking reference"
+                    required
+                    className="w-full rounded-lg border border-slate-300 px-3 py-3 outline-none focus:border-[#008BE0] focus:ring-2 focus:ring-blue-100"
+                  />
+                </div>
+
+                <div>
+                  <label
+                    htmlFor="lookup_email"
+                    className="mb-2 block text-sm font-semibold text-slate-700"
+                  >
+                    Booking email address
+                  </label>
+
+                  <input
+                    id="lookup_email"
+                    type="email"
+                    value={lookupEmail}
+                    onChange={(event) =>
+                      setLookupEmail(event.target.value)
+                    }
+                    placeholder="Enter your booking email"
+                    required
+                    className="w-full rounded-lg border border-slate-300 px-3 py-3 outline-none focus:border-[#008BE0] focus:ring-2 focus:ring-blue-100"
+                  />
+                </div>
+
+                {lookupError && (
+                  <div
+                    role="alert"
+                    className="sm:col-span-2 flex items-start gap-2 rounded-lg border border-red-200 bg-red-50 p-3 text-sm text-red-700"
+                  >
+                    <AlertCircle size={18} className="mt-0.5 shrink-0" />
+                    <span>{lookupError}</span>
+                  </div>
+                )}
+
+                <div className="sm:col-span-2">
+                  <button
+                    type="submit"
+                    disabled={lookingUpBooking}
+                    className="inline-flex w-full items-center justify-center gap-2 rounded-lg bg-[#002B5C] px-5 py-3 font-semibold text-white transition hover:bg-blue-900 disabled:cursor-not-allowed disabled:opacity-60 sm:w-auto"
+                  >
+                    {lookingUpBooking ? (
+                      <>
+                        <LoaderCircle className="animate-spin" size={19} />
+                        Retrieving booking...
+                      </>
+                    ) : (
+                      <>
+                        <Search size={18} />
+                        Retrieve my booking
+                      </>
+                    )}
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </section>
+
         {bookingResult && (
           <section
             aria-live="polite"
@@ -743,14 +955,15 @@ export default function HotelBooking() {
 
               <div className="min-w-0 flex-1">
                 <h2 className="text-xl font-bold text-slate-900">
-                  Booking request received
+                  {bookingResult?.is_existing_lookup
+                    ? 'Your booking details'
+                    : 'Booking request received'}
                 </h2>
 
                 <p className="mt-2 leading-7 text-slate-600">
-                  Your booking request has been submitted. Keep your booking
-                  reference for future enquiries. Your accommodation is not
-                  confirmed until payment has been verified and an administrator
-                  confirms the booking.
+                  {bookingResult?.is_existing_lookup
+                    ? 'Your existing booking has been retrieved. You can review your payment details and upload your receipt below. Your accommodation is not confirmed until payment has been verified and an administrator confirms the booking.'
+                    : 'Your booking request has been submitted. Keep your booking reference for future enquiries. Your accommodation is not confirmed until payment has been verified and an administrator confirms the booking.'}
                 </p>
 
                 <div className="mt-5 rounded-xl bg-slate-50 p-4">

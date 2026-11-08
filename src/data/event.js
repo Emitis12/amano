@@ -132,27 +132,7 @@ Currently, Captain Enisuoh serves as Executive Director – Operations and Techn
 
 Captain Warredi Enisuoh's commitment to excellence, dedication to advancing maritime and aviation safety, and passion for developing innovative security strategies have established him as a respected authority in maritime, aviation, and security operations.`
   },
-{
-    name: 'Mrs. Iroghama Ogbeifun',
-    role: 'Managing Director/Chief Executive Officer of Starzs Investments Company Limited',
-    tag: 'Panelist',
-    image: '/speaker80.jpg',
-    bio: `Iroghama Ogbeifun is the Managing Director/Chief Executive Officer of Starzs Investments Company Limited where she manages the affairs and operations of a Fleet of Eleven Ships working in Deep offshore Nigerian waters whilst supporting the oil exploration and production activities of International Oil Companies.
 
-She holds a Bachelor’s degree in Biology and Psychology and an MSc in Public Health. She is also an alumnus of the Harvard Business School.
-
-In addition to her role at Starzs Investments Company Limited, Iroghama Ogbeifun serves as Vice Chairman of Starzs Gas Limited and Director at Eaglewatch Security Services Limited.
-
-A respected industry leader, she is a Member of the Governing Board of Nigerian Maritime Administration and Safety Agency (NIMASA), a Member of the Institute of Directors (IoD), and a Fellow of the National Institute of Credit Administration (NICA).
-
-A strong advocate for gender inclusion and women’s advancement in business and energy, she is a Founding Member and Sponsorship Director of Women in Energy Network (WIEN), an Associate Member of Women in Management, Business and Public Service (WIMBIZ), a Patron of Association of Professional Women Engineers of Nigeria (APWEN), a Matron of the Association of Women Entrepreneurs and Business Owners (AWEBO), and a member of GAIA Africa.
-
-Beyond the corporate space, Iroghama is deeply committed to philanthropy and social impact. She serves as a Board Trustee of The R.E.A.C.H Nigeria Foundation, a Board Member of Lagos Liga, and a Member of the Advisory Board for the Women in Maritime and Energy Awards (WiME Awards).
-
-With over a decade of extensive entrepreneurial experience, she is the founder of Hairven Hair Limited, which has beauty salons, spa & a hair care line, and Stratom Concept Limited, a diversified company with interests in logistics, construction, petroleum marketing, agro-allied services, and retail, whose subsidiaries include Jana & Jaya’s Daily Mart and Revitalife Pharmacy.
-
-She is a mother to beautiful twin girls and is committed to the growth of female entrepreneurs, a passion she drives through mentorship and support.`,
-  },
   {
     name: 'Mr. William Azuh',
     role: 'Maritime Policy, Administration & Governance',
@@ -184,6 +164,28 @@ Beyond academia, Professor Mejia served as Administrator/Director-General of the
 
 Professor Mejia holds a PhD from Lund University, Sweden; an MSc from the World Maritime University; an MA in Law and Diplomacy from The Fletcher School at Tufts University; and a BSc from the United States Naval Academy. Fluent in Filipino, English, and Swedish, with knowledge of Spanish and Chinese, he is WMU’s first President from Asia and the first President to be an alumnus of the University.`
 },
+
+{
+    name: 'Mrs. Iroghama Ogbeifun',
+    role: 'Managing Director/Chief Executive Officer of Starzs Investments Company Limited',
+    tag: 'Panelist',
+    image: '/speaker80.jpg',
+    bio: `Iroghama Ogbeifun is the Managing Director/Chief Executive Officer of Starzs Investments Company Limited where she manages the affairs and operations of a Fleet of Eleven Ships working in Deep offshore Nigerian waters whilst supporting the oil exploration and production activities of International Oil Companies.
+
+She holds a Bachelor’s degree in Biology and Psychology and an MSc in Public Health. She is also an alumnus of the Harvard Business School.
+
+In addition to her role at Starzs Investments Company Limited, Iroghama Ogbeifun serves as Vice Chairman of Starzs Gas Limited and Director at Eaglewatch Security Services Limited.
+
+A respected industry leader, she is a Member of the Governing Board of Nigerian Maritime Administration and Safety Agency (NIMASA), a Member of the Institute of Directors (IoD), and a Fellow of the National Institute of Credit Administration (NICA).
+
+A strong advocate for gender inclusion and women’s advancement in business and energy, she is a Founding Member and Sponsorship Director of Women in Energy Network (WIEN), an Associate Member of Women in Management, Business and Public Service (WIMBIZ), a Patron of Association of Professional Women Engineers of Nigeria (APWEN), a Matron of the Association of Women Entrepreneurs and Business Owners (AWEBO), and a member of GAIA Africa.
+
+Beyond the corporate space, Iroghama is deeply committed to philanthropy and social impact. She serves as a Board Trustee of The R.E.A.C.H Nigeria Foundation, a Board Member of Lagos Liga, and a Member of the Advisory Board for the Women in Maritime and Energy Awards (WiME Awards).
+
+With over a decade of extensive entrepreneurial experience, she is the founder of Hairven Hair Limited, which has beauty salons, spa & a hair care line, and Stratom Concept Limited, a diversified company with interests in logistics, construction, petroleum marketing, agro-allied services, and retail, whose subsidiaries include Jana & Jaya’s Daily Mart and Revitalife Pharmacy.
+
+She is a mother to beautiful twin girls and is committed to the growth of female entrepreneurs, a passion she drives through mentorship and support.`,
+  },
 
 {
   name: 'Mrs. Vivian Chimezie-Azubuike',
