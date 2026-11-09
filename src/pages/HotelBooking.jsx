@@ -2,6 +2,7 @@ import { useCallback, useEffect, useMemo, useState } from 'react'
 import {
   CalendarDays,
   MapPin,
+  Phone,
   Users,
   BedDouble,
   Wifi,
@@ -834,10 +835,25 @@ export default function HotelBooking() {
               <CalendarDays size={18} />
               12–14 November 2026
             </span>
+
             <span className="flex items-center gap-2">
               <MapPin size={18} />
               Lagos, Nigeria
             </span>
+
+            <a
+              href="tel:+2348035870885"
+              className="inline-flex items-center gap-2 font-semibold text-amber-300 transition hover:text-amber-200"
+            >
+              <Phone size={18} />
+              Enquiries & Complaints: +234 803 587 0885
+            </a>
+            <a
+              href="tel:+2348136584693"
+              className="inline-flex items-center gap-2 font-semibold text-amber-300 transition hover:text-amber-200"
+            >
+              Or:  +234 813 658 4693
+            </a>
           </div>
         </div>
       </section>
