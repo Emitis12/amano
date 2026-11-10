@@ -1,5 +1,23 @@
+
 import { useEffect, useMemo, useState } from 'react'
-import { Camera, Download, Eye, Images, RefreshCw, X } from 'lucide-react'
+
+import {
+  Camera,
+  Download,
+  Eye,
+  Images,
+  RefreshCw,
+  X,
+  Share2,
+  Copy,
+  Check,
+  MessageCircle,
+  Send,
+  Facebook,
+  Instagram,
+  Twitter,
+} from 'lucide-react'
+
 import { supabase } from '../lib/supabase.js'
 
 const DAY_TABS = [
@@ -41,6 +59,13 @@ export default function Gallerie() {
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState('')
   const [downloading, setDownloading] = useState(false)
+
+  // Sharing states
+  const [sharing, setSharing] = useState(false)
+  const [shareMenuOpen, setShareMenuOpen] = useState(false)
+  const [shareUrl, setShareUrl] = useState('')
+  const [copied, setCopied] = useState(false)
+  const [shareError, setShareError] = useState('')
 
   async function loadPhotos() {
     setLoading(true)
@@ -92,6 +117,7 @@ export default function Gallerie() {
     function handleKeyDown(event) {
       if (event.key === 'Escape') {
         setSelectedPhoto(null)
+        setShareMenuOpen(false)
       }
     }
 
@@ -117,6 +143,9 @@ export default function Gallerie() {
 
   async function openPhoto(photo) {
     setSelectedPhoto(photo)
+    setShareMenuOpen(false)
+    setShareUrl('')
+    setCopied(false)
 
     try {
       const { data, error: viewError } = await supabase.rpc(
@@ -167,13 +196,166 @@ export default function Gallerie() {
       document.body.appendChild(link)
       link.click()
       link.remove()
+
       URL.revokeObjectURL(url)
     } catch (err) {
       console.error('Could not download photo:', err.message)
-      // Fallback: open the image so it can be saved manually.
+
       window.open(photo.imageUrl, '_blank', 'noopener,noreferrer')
     } finally {
       setDownloading(false)
+    }
+  }
+
+  // Generate a fresh signed URL for sharing
+  async function getShareUrl(photo) {
+    const { data, error } = await supabase.storage
+      .from('amano-photos')
+      .createSignedUrl(photo.storage_path, 604800)
+
+    if (error) throw error
+
+    return data.signedUrl
+  }
+
+  // Prepare sharing options
+  async function prepareShare(photo) {
+    if (!photo || sharing) return null
+
+    setSharing(true)
+    setShareError('')
+    setCopied(false)
+
+    try {
+      const url = await getShareUrl(photo)
+      setShareUrl(url)
+
+      return url
+    } catch (err) {
+      console.error('Could not prepare photo sharing:', err)
+
+      setShareError('Unable to prepare the sharing link. Please try again.')
+
+      return null
+    } finally {
+      setSharing(false)
+    }
+  }
+
+  // Share photograph using native device sharing
+  async function handleNativeShare(photo) {
+    if (!photo || sharing) return
+
+    setSharing(true)
+    setShareError('')
+
+    try {
+      const url = await getShareUrl(photo)
+
+      const title = 'AMANO National Convention 2026'
+
+      const text =
+        `${photo.caption || 'Convention photograph'}\n\n` +
+        'AMANO National Convention 2026\n' +
+        'CONNECT | NETWORK | BUILD | ADVANCE'
+
+      // Try sharing the actual image file on supported devices
+      if (navigator.share && navigator.canShare) {
+        try {
+          const response = await fetch(url)
+
+          if (!response.ok) throw new Error('Unable to fetch image')
+
+          const blob = await response.blob()
+
+          const extension =
+            blob.type.split('/')[1]?.split(';')[0] || 'jpg'
+
+          const file = new File(
+            [blob],
+            `amano-convention-${photo.id}.${extension}`,
+            { type: blob.type || 'image/jpeg' }
+          )
+
+          if (navigator.canShare({ files: [file] })) {
+            await navigator.share({
+              title,
+              text,
+              files: [file],
+            })
+
+            setSharing(false)
+            return
+          }
+        } catch (fileError) {
+          if (fileError.name === 'AbortError') {
+            setSharing(false)
+            return
+          }
+
+          console.log('Image-file sharing unavailable; sharing link instead.')
+        }
+
+        // Fall back to sharing the image URL
+        await navigator.share({
+          title,
+          text,
+          url,
+        })
+
+        setSharing(false)
+        return
+      }
+
+      // Desktop fallback: open the social sharing options
+      setShareUrl(url)
+      setShareMenuOpen(true)
+    } catch (err) {
+      if (err.name !== 'AbortError') {
+        console.error('Sharing failed:', err)
+
+        setShareError('Unable to share this photograph. Please try again.')
+      }
+    } finally {
+      setSharing(false)
+    }
+  }
+
+  // Copy image URL
+  async function copyShareLink() {
+    if (!shareUrl) return
+
+    try {
+      await navigator.clipboard.writeText(shareUrl)
+      setCopied(true)
+
+      setTimeout(() => setCopied(false), 2500)
+    } catch (err) {
+      console.error('Could not copy link:', err)
+      setShareError('Unable to copy the link. Please copy it manually.')
+    }
+  }
+
+  // Social media sharing links
+  function getSocialLinks(photo) {
+    if (!shareUrl) return null
+
+    const message = encodeURIComponent(
+      `${photo.caption || 'Convention photograph'}\n\n` +
+      'AMANO National Convention 2026\n' +
+      'CONNECT | NETWORK | BUILD | ADVANCE'
+    )
+
+    const encodedUrl = encodeURIComponent(shareUrl)
+
+    return {
+      whatsapp: `https://wa.me/?text=${message}%0A${encodedUrl}`,
+
+      facebook: `https://www.facebook.com/sharer/sharer.php?u=${encodedUrl}`,
+
+      x: `https://twitter.com/intent/tweet?text=${message}&url=${encodedUrl}`,
+
+      telegram: `https://t.me/share/url?url=${encodedUrl}&text=${message}`,
     }
   }
 
@@ -181,7 +363,7 @@ export default function Gallerie() {
     <section className="min-h-screen bg-gray-50">
       {/* Gallery Header */}
       <div className="bg-[#002B5C] px-5 py-12 text-center text-white sm:px-6 sm:py-16">
-        <p className="mb-4 text-xs pt-12 uppercase tracking-[0.25em] text-amber-400 sm:text-sm sm:tracking-[0.3em]">
+        <p className="mb-4 pt-12 text-xs uppercase tracking-[0.25em] text-amber-400 sm:text-sm sm:tracking-[0.3em]">
           AMANO National Convention 2026
         </p>
 
@@ -367,30 +549,36 @@ export default function Gallerie() {
       {/* Full-Screen Photo Viewer */}
       {selectedPhoto && (
         <div
-          className="fixed inset-0 z-[100] flex items-center justify-center bg-black/90 p-4 sm:p-8"
+          className="fixed inset-0 z-[100] flex items-center justify-center overflow-y-auto bg-black/90 p-4 sm:p-8"
           role="dialog"
           aria-modal="true"
           aria-label="Photograph viewer"
-          onClick={() => setSelectedPhoto(null)}
+          onClick={() => {
+            setSelectedPhoto(null)
+            setShareMenuOpen(false)
+          }}
         >
           <button
             type="button"
-            onClick={() => setSelectedPhoto(null)}
+            onClick={() => {
+              setSelectedPhoto(null)
+              setShareMenuOpen(false)
+            }}
             aria-label="Close photo viewer"
-            className="absolute right-4 top-4 rounded-full bg-white/10 p-3 text-white transition hover:bg-white/20"
+            className="absolute right-4 top-4 z-20 rounded-full bg-white/10 p-3 text-white transition hover:bg-white/20"
           >
             <X size={24} />
           </button>
 
           <div
-            className="max-h-full w-full max-w-5xl"
+            className="my-auto max-h-full w-full max-w-5xl"
             onClick={(event) => event.stopPropagation()}
           >
             {selectedPhoto.imageUrl && (
               <img
                 src={selectedPhoto.imageUrl}
                 alt={selectedPhoto.caption || selectedPhoto.file_name}
-                className="mx-auto max-h-[75vh] max-w-full rounded-lg object-contain"
+                className="mx-auto max-h-[65vh] max-w-full rounded-lg object-contain sm:max-h-[75vh]"
               />
             )}
 
@@ -407,15 +595,182 @@ export default function Gallerie() {
               </p>
 
               {selectedPhoto.imageUrl && (
-                <button
-                  type="button"
-                  onClick={() => downloadPhoto(selectedPhoto)}
-                  disabled={downloading}
-                  className="mt-4 inline-flex items-center gap-2 rounded-full bg-amber-400 px-5 py-2.5 text-sm font-semibold text-[#002B5C] transition hover:bg-amber-300 disabled:cursor-not-allowed disabled:opacity-60"
-                >
-                  <Download size={16} />
-                  {downloading ? 'Downloading...' : 'Download photo'}
-                </button>
+                <div className="mt-5 flex flex-wrap items-center justify-center gap-3">
+                  {/* Download Button */}
+                  <button
+                    type="button"
+                    onClick={() => downloadPhoto(selectedPhoto)}
+                    disabled={downloading}
+                    className="inline-flex items-center gap-2 rounded-full bg-amber-400 px-5 py-2.5 text-sm font-semibold text-[#002B5C] transition hover:bg-amber-300 disabled:cursor-not-allowed disabled:opacity-60"
+                  >
+                    <Download size={16} />
+                    {downloading ? 'Downloading...' : 'Download photo'}
+                  </button>
+
+                  {/* Share Button */}
+                  <button
+                    type="button"
+                    onClick={async () => {
+                      if (navigator.share) {
+                        await handleNativeShare(selectedPhoto)
+                      } else {
+                        setShareMenuOpen(!shareMenuOpen)
+
+                        if (!shareMenuOpen && !shareUrl) {
+                          await prepareShare(selectedPhoto)
+                        }
+                      }
+                    }}
+                    disabled={sharing}
+                    className="inline-flex items-center gap-2 rounded-full bg-white px-5 py-2.5 text-sm font-semibold text-[#002B5C] transition hover:bg-gray-200 disabled:opacity-60"
+                  >
+                    {sharing ? (
+                      <RefreshCw size={16} className="animate-spin" />
+                    ) : (
+                      <Share2 size={16} />
+                    )}
+                    {sharing ? 'Preparing...' : 'Share photo'}
+                  </button>
+                </div>
+              )}
+
+              {/* Social Sharing Panel */}
+              {shareMenuOpen && (
+                <div className="mx-auto mt-5 max-w-md rounded-2xl border border-white/10 bg-white p-5 text-left text-gray-800 shadow-2xl">
+                  <div className="mb-4 flex items-center justify-between">
+                    <h3 className="font-bold text-[#002B5C]">
+                      Share this photograph
+                    </h3>
+
+                    <button
+                      type="button"
+                      onClick={() => setShareMenuOpen(false)}
+                      className="rounded-full p-1 text-gray-500 transition hover:bg-gray-100"
+                      aria-label="Close sharing options"
+                    >
+                      <X size={19} />
+                    </button>
+                  </div>
+
+                  {sharing ? (
+                    <div className="flex items-center justify-center gap-2 py-5 text-sm text-gray-500">
+                      <RefreshCw size={17} className="animate-spin" />
+                      Preparing sharing link...
+                    </div>
+                  ) : shareUrl ? (
+                    <>
+                      <div className="grid grid-cols-4 gap-3">
+                        {(() => {
+                          const links = getSocialLinks(selectedPhoto)
+
+                          return (
+                            <>
+                              <a
+                                href={links.whatsapp}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="flex flex-col items-center gap-2 rounded-xl p-2 text-center transition hover:bg-green-50"
+                              >
+                                <span className="flex h-12 w-12 items-center justify-center rounded-full bg-green-500 text-white">
+                                  <MessageCircle size={23} />
+                                </span>
+                                <span className="text-[11px] font-semibold">
+                                  WhatsApp
+                                </span>
+                              </a>
+
+                              <a
+                                href={links.facebook}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="flex flex-col items-center gap-2 rounded-xl p-2 text-center transition hover:bg-blue-50"
+                              >
+                                <span className="flex h-12 w-12 items-center justify-center rounded-full bg-[#1877F2] text-white">
+                                  <Facebook size={23} />
+                                </span>
+                                <span className="text-[11px] font-semibold">
+                                  Facebook
+                                </span>
+                              </a>
+
+                              <a
+                                href={links.x}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="flex flex-col items-center gap-2 rounded-xl p-2 text-center transition hover:bg-gray-100"
+                              >
+                                <span className="flex h-12 w-12 items-center justify-center rounded-full bg-black text-white">
+                                  <Twitter size={22} />
+                                </span>
+                                <span className="text-[11px] font-semibold">
+                                  X
+                                </span>
+                              </a>
+
+                              <a
+                                href={links.telegram}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="flex flex-col items-center gap-2 rounded-xl p-2 text-center transition hover:bg-sky-50"
+                              >
+                                <span className="flex h-12 w-12 items-center justify-center rounded-full bg-[#229ED9] text-white">
+                                  <Send size={22} />
+                                </span>
+                                <span className="text-[11px] font-semibold">
+                                  Telegram
+                                </span>
+                              </a>
+                            </>
+                          )
+                        })()}
+                      </div>
+
+                      <div className="my-4 border-t border-gray-100" />
+
+                      <button
+                        type="button"
+                        onClick={copyShareLink}
+                        className="flex w-full items-center justify-center gap-2 rounded-xl bg-[#002B5C] px-4 py-3 text-sm font-semibold text-white transition hover:bg-[#003B7A]"
+                      >
+                        {copied ? <Check size={17} /> : <Copy size={17} />}
+                        {copied ? 'Link copied!' : 'Copy image link'}
+                      </button>
+
+                      <p className="mt-3 text-center text-xs text-gray-500">
+                        Instagram: download the photo and upload it
+                        directly to Instagram.
+                      </p>
+
+                      <p className="mt-2 text-center text-[10px] text-gray-400">
+                        Sharing links expire after 7 days.
+                      </p>
+                    </>
+                  ) : (
+                    <div className="py-3 text-center">
+                      {shareError ? (
+                        <p className="text-sm text-red-600">{shareError}</p>
+                      ) : (
+                        <p className="text-sm text-gray-500">
+                          Preparing sharing options...
+                        </p>
+                      )}
+
+                      <button
+                        type="button"
+                        onClick={() => prepareShare(selectedPhoto)}
+                        className="mt-3 text-sm font-semibold text-[#002B5C] underline"
+                      >
+                        Try again
+                      </button>
+                    </div>
+                  )}
+
+                  {shareError && shareUrl && (
+                    <p className="mt-3 text-center text-xs text-red-600">
+                      {shareError}
+                    </p>
+                  )}
+                </div>
               )}
             </div>
           </div>

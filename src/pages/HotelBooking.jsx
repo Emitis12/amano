@@ -817,7 +817,7 @@ export default function HotelBooking() {
     <div className="min-h-screen bg-slate-50 text-slate-800">
       <section className="bg-[#002B5C] px-5 py-16 text-white sm:py-20">
         <div className="mx-auto max-w-6xl">
-          <p className="mb-3 text-sm font-semibold uppercase tracking-[0.2em] text-amber-300">
+          <p className="mb-3 pt-10 text-sm font-semibold uppercase tracking-[0.2em] text-amber-300">
             AMANO National Convention 2026
           </p>
 
